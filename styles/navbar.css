@@ -1,0 +1,32 @@
+.navbar {
+    background-color: #f2f2f200;
+    justify-content: center;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .navbar li {
+    margin: 0 10px;
+    padding: 0 23px;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #65635F;
+    font-weight:400;
+    text-transform: uppercase;
+  }
+
+  .navbar a:hover{
+    color: #036FFC;
+  }
+
+  .navbar .active{
+    font-weight: 800;
+  }
+  
