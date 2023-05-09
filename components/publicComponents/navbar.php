@@ -3,6 +3,7 @@
         <?php
         $navbarItems = array(
             "HOME" => "index.php",
+            "ABOUT" => "AboutPage.php",
             "GALLERY" => "GalleryPage.php",
             "COMMISSION INFO" => "CommissionInfoPage.php",
             "CONTACT" => "ContactPage.php"

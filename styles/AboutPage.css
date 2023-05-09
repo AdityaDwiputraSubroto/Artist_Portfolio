@@ -1,0 +1,9 @@
+.image, .description {
+    margin: 0px 5px 100px 5px;
+}
+
+.image img {
+    width: 250px;
+    height: 250px;
+    border-radius: 200px;
+}
