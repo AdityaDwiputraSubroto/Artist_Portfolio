@@ -1,0 +1,62 @@
+.scroll-images {
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.image img {
+    /* width: 380px; */
+    height: 300px;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-size: 24px;
+    cursor: pointer;
+   
+}
+
+.arrow img{
+    width: 30px;
+}
+
+.left-arrow img{
+    transform: rotate(180deg);
+}
+
+.left-arrow {
+    left: 0;
+  
+}
+
+.right-arrow {
+    right: 0;
+}
+
+.arrow:focus {
+    outline: none;
+}
+
+.arrow:active {
+    transform: translateY(-50%) scale(1.2);
+}
+
+.arrow:hover {
+    color: blue;
+}
+
+.left-arrow.disabled, .right-arrow.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+    .arrow {
+        font-size: 16px;
+    }
+}
