@@ -44,8 +44,8 @@
             <div class="image"> <img src="../../assets/img/Gambar1.png" class="" alt="..."></div>
             <div class="image"> <img src="../../assets/img/Gambar3.png" class="" alt="..."></div>
         </div>
-        <button class="arrow left-arrow"><img class="rotate-180" src="../../assets/img/icons/right-arrow.png" alt="left-arrow">;</button>
-        <button class="arrow right-arrow"><img src="../../assets/img/icons/right-arrow.png" alt="right-arrow">;</button>
+        <button class="arrow left-arrow"><img class="rotate-180" src="../../assets/img/icons/right-arrow.png" alt="left-arrow"></button>
+        <button class="arrow right-arrow"><img src="../../assets/img/icons/right-arrow.png" alt="right-arrow"></button>
     </div>
 
     <?php
