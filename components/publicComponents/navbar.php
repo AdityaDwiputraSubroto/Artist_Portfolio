@@ -15,7 +15,7 @@
             if ($activePage == $navName) {
                 echo "active";
             }
-        ?>" href="pages/public/<?php echo $navLink ?>"><?php echo $navName ?></a></li>
+        ?>" href="<?php echo $navLink ?>"><?php echo $navName ?></a></li>
         <?php } ?>
     </ul>
 </nav>
