@@ -1,0 +1,48 @@
+.container-contact{
+    display: flex;
+    justify-content:space-between;
+    gap: 100px;
+}
+
+input{
+    width: 100%;
+    border: 1px solid blue;
+  outline: none;
+  height: 38px;
+    padding-left: 3px;
+}
+
+textarea{
+    width: 100%;
+    border-color: #036FFC; 
+    outline: none;
+    padding-left: 3px;
+  
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+.contact{
+   margin: auto;
+    width: 70%;
+}
+
+@media screen and (orientation: portrait) {
+    .contact {
+      width:90%;
+      margin: auto;
+    }
+
+    .container-contact{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+    }
+  }
+
