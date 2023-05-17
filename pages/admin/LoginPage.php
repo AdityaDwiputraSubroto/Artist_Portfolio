@@ -1,3 +1,18 @@
+<?php
+    session_start();
+
+    if (isset($_SESSION['id_admin'])) {
+        echo "
+                <script>
+                    alert('You are logged in!'); 
+                    document.location.href='index.php';
+                </script>
+            ";
+            
+        die();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,15 +45,15 @@
     
     <div class="d-flex justify-content-center" style="margin-bottom: 100px;">
         <div class="w-25 text-center">
-            <form>
+            <form action="LoginProcess.php" method="POST">
                 <div class="mb-3">
-                    <input type="text" class="form-control border border-primary" id="username" placeholder="USERNAME">
+                    <input type="text" class="form-control border border-primary" name="username" id="username" placeholder="USERNAME" required>
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control border border-primary" id="password" placeholder="PASSWORD">
+                    <input type="password" class="form-control border border-primary" name="password" id="password" placeholder="PASSWORD" required>
                 </div>
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-primary">LOGIN</button>
+                    <button type="submit" class="btn btn-primary" name="submit">LOGIN</button>
                 </div>
             </form>
         </div>
