@@ -18,6 +18,7 @@
             font-family: "Karla", sans-serif;
         }
     </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -76,7 +77,7 @@
             <img src="../../assets/img/gallery/Gambar1.png" />
             <img src="../../assets/img/gallery/Gambar2.png" />
         </div> -->
-        <div id="gallery" class="gallery">
+        <div id="gallery" class="gallery mb-5">
             <?php
             include '../../proses/Connection.php';
             $query = "SELECT * FROM gallery";
@@ -88,13 +89,16 @@
             ?>
                 <div class="gallery-item">
                     <img src="../../assets/img/gallery/<?php echo $image ?>" />
-                    <button class="delete-button"><i class="fa fa-trash"></i></button>
+                    <a class="delete-button">
+                        <!-- <i class="fa fa-trash"></i> -->
+                        <img src="../../assets/img/icons/trash-bin.png" />
+                    </a>
                     <div class="overlay-delete">
                         <div class="overlay-delete-content">
                             <p>Are you sure you want to delete this image?</p>
                             <div class="buttons">
                                 <button class="cancel-button btn btn-primary">Cancel</button>
-                                <button class="delete-confirm-button btn btn-danger">Delete</button>
+                                <button class="delete-confirm-button btn btn-danger" onclick="deleteImage(<?php echo $data['id_gallery']; ?>)">Delete</button>
                             </div>
                         </div>
                     </div>
@@ -110,6 +114,32 @@
     include '../../components/footer.php';
     ?>
 
+
+    <script>
+        function deleteImage(imageId) {
+            //var galleryItem = $(".gallery-item[data-id='" + imageId + "']");
+
+            // Send an AJAX request to delete the image
+            $.ajax({
+                url: "proses/deleteImage.php",
+                type: "POST",
+                data: {
+                    imageId: imageId
+                },
+                success: function(response) {
+                    // Handle the response from the server
+                    if (response === "success") {
+                        // Delete the gallery item from the DOM
+                        // galleryItem.remove();
+                    } else {
+                        // Show an error message
+                        alert("Failed to delete the image.");
+                    }
+                }
+            });
+
+        }
+    </script>
 
     <script>
         document.getElementById('image-upload').addEventListener('change', function(e) {
