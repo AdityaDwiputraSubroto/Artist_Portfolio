@@ -48,7 +48,12 @@
     <?php
     include '../../components/contact-icon.php';
     ?>
-    <div class="mt-4 position-relative">
+
+    <div class="overlay">
+        <img src="" alt="Full-size image">
+    </div>
+    <div class="mt-4 position-relative mb-5">
+
         <div class="scroll-images">
             <?php
             include '../../proses/Connection.php';
@@ -65,8 +70,8 @@
             <?php }
             ?>
         </div>
-        <button class="arrow left-arrow"><img class="rotate-180" src="../../assets/img/icons/right-arrow.png" alt="left-arrow">;</button>
-        <button class="arrow right-arrow"><img src="../../assets/img/icons/right-arrow.png" alt="right-arrow">;</button>
+        <button class="arrow left-arrow"><img class="rotate-180" src="../../assets/img/icons/right-arrow.png" alt="left-arrow"></button>
+        <button class="arrow right-arrow"><img src="../../assets/img/icons/right-arrow.png" alt="right-arrow"></button>
     </div>
 
     <?php
@@ -96,6 +101,27 @@
             rightArrow.classList.add('disabled');
         } else {
             rightArrow.classList.remove('disabled');
+        }
+    });
+</script>
+
+<script>
+    //imgae overlay
+    const gallery = document.querySelector('.scroll-images');
+    const overlay = document.querySelector('.overlay');
+    const overlayImage = overlay.querySelector('img');
+
+    gallery.addEventListener('click', event => {
+        if (event.target.tagName === 'IMG') {
+            overlayImage.src = event.target.src;
+            overlay.style.display = 'flex';
+            overlayImage.style.width = '600px';
+        }
+    });
+
+    overlay.addEventListener('click', event => {
+        if (event.target === overlay || event.target === overlayImage) {
+            overlay.style.display = 'none';
         }
     });
 </script>

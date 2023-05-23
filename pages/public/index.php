@@ -33,6 +33,10 @@
     <?php
     include '../../components/contact-icon.php';
     ?>
+
+    <div class="overlay">
+        <img src="" alt="Full-size image">
+    </div>
     <div class="mt-4 position-relative mb-4">
         <div class="scroll-images">
             <?php
@@ -85,5 +89,27 @@
         }
     });
 </script>
+
+<script>
+    //imgae overlay
+    const gallery = document.querySelector('.scroll-images');
+    const overlay = document.querySelector('.overlay');
+    const overlayImage = overlay.querySelector('img');
+
+    gallery.addEventListener('click', event => {
+        if (event.target.tagName === 'IMG') {
+            overlayImage.src = event.target.src;
+            overlay.style.display = 'flex';
+            overlayImage.style.width = '600px';
+        }
+    });
+
+    overlay.addEventListener('click', event => {
+        if (event.target === overlay || event.target === overlayImage) {
+            overlay.style.display = 'none';
+        }
+    });
+</script>
+
 
 </html>
