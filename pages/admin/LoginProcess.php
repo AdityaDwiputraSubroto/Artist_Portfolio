@@ -11,7 +11,7 @@
         die();
     }
 
-    include "../../Connection.php";
+    include "../../proses/Connection.php";
     
     $username = $_POST['username'];
     $password = mysqli_escape_string($conn,$_POST['password']);
@@ -48,4 +48,3 @@
                 </script>
             ";
     }
-?>
