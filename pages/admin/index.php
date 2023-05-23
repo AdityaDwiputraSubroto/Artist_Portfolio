@@ -1,16 +1,16 @@
 <?php
-    session_start();
+// session_start();
 
-    if (!isset($_SESSION['id_admin'])) {
-        echo "
-                <script>
-                    alert('You are not logged in!'); 
-                    document.location.href='index.php';
-                </script>
-            ";
-            
-        die();
-    }
+// if (!isset($_SESSION['id_admin'])) {
+//     echo "
+//                 <script>
+//                     alert('You are not logged in!'); 
+//                     document.location.href='index.php';
+//                 </script>
+//             ";
+
+//     die();
+// }
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +42,7 @@
 
     <?php
     $activePage = "HOME";
-    include '../../components/publicComponents/navbar.php';
+    include '../../components/adminComponents/navbar.php';
     ?>
 
     <?php
@@ -50,14 +50,20 @@
     ?>
     <div class="mt-4 position-relative">
         <div class="scroll-images">
-            <div class="image"> <img src="../../assets/img/Gambar2.png" class="" alt="..."></div>
-            <div class="image"> <img src="../../assets/img/Gambar1.png" class="" alt="..."></div>
-            <div class="image"> <img src="../../assets/img/Gambar3.png" class="" alt="..."></div>
-            <div class="image"> <img src="../../assets/img/Gambar1.png" class="" alt="..."></div>
-            <div class="image"> <img src="../../assets/img/Gambar3.png" class="" alt="..."></div>
-            <div class="image"> <img src="../../assets/img/Gambar2.png" class="" alt="..."></div>
-            <div class="image"> <img src="../../assets/img/Gambar1.png" class="" alt="..."></div>
-            <div class="image"> <img src="../../assets/img/Gambar3.png" class="" alt="..."></div>
+            <?php
+            include '../../proses/Connection.php';
+            $query = "SELECT * FROM gallery";
+            $result = $conn->query($query);
+            while ($data = $result->fetch_assoc()) {
+                $image = urlencode($data['nama_gambar']);
+                // $imageEncode = urlencode($data['nama_gambar']);
+                // $image = str_replace("+", "%20", $imageEncode);
+            ?>
+                <div class="image">
+                    <img src="../../assets/img/gallery/<?php echo $image; ?>" class="" alt="...">
+                </div>
+            <?php }
+            ?>
         </div>
         <button class="arrow left-arrow"><img class="rotate-180" src="../../assets/img/icons/right-arrow.png" alt="left-arrow">;</button>
         <button class="arrow right-arrow"><img src="../../assets/img/icons/right-arrow.png" alt="right-arrow">;</button>
