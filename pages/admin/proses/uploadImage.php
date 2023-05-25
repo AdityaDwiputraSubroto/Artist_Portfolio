@@ -14,9 +14,14 @@ if (isset($_POST['upload'])) {
         include '../../../proses/Connection.php';
         // Get the selected commission ID from the form
         $commissionID = $_POST['commission'];
+        if ($commissionID == "0") {
+            // Insert the image name and commission ID into the database
+            $sql = "INSERT INTO gallery (id_admin, nama_gambar) VALUES (1, '$uniqueName')";
+        } else {
+            // Insert the image name and commission ID into the database
+            $sql = "INSERT INTO gallery (id_admin, nama_gambar, id_commission_info) VALUES (1, '$uniqueName', '$commissionID')";
+        }
 
-        // Insert the image name and commission ID into the database
-        $sql = "INSERT INTO gallery (id_admin, nama_gambar, id_commission_info) VALUES (1, '$uniqueName', '$commissionID')";
         // if ($conn->query($sql) === TRUE) {
         //     echo "Image uploaded and database updated successfully!";
         // } else {

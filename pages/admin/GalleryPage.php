@@ -52,6 +52,7 @@
         <form class="mt-2" action="proses/uploadImage.php" method="POST" enctype="multipart/form-data">
             <label for="commission">Commission:</label>
             <select id="commission" name="commission">
+                <option value="0">None</option>
                 <?php
                 include '../../proses/Connection.php';
                 $query = "SELECT * FROM commission_Info";
