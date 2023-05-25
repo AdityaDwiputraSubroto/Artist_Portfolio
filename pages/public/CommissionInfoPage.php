@@ -47,13 +47,25 @@
                 <div class="before-you-commission">
                     <ul>
                         <li>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam eius incidunt possimus similique veniam dolorem maiores atque voluptatibus, est velit, saepe et ipsa quibusdam sequi.
+                            <span style="font-weight: bold;"> DO</span> : Fanart and OC
                         </li>
                         <li>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores maiores ipsum deserunt at architecto error ratione quos! Incidunt aut, sed consectetur neque ullam est animi!
+                            <span style="font-weight: bold;"> DONT </span> : Furry, BL, Mecha, NSFW, Vehicle
                         </li>
                         <li>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem nesciunt sunt error? Eius beatae eum libero sunt ut suscipit nostrum cum aperiam cupiditate ad? Corporis.
+                            <span style="font-weight: bold;"> These are only the base price, </span> price may increase depending on how complex the background and character design
+                        </li>
+                        <li>
+                            <span style="font-weight: bold;"> 4 times max revision </span> : 3x during sketch and 1x during coloring
+                        </li>
+                        <li>
+                            Payment via <span style="font-weight: bold;">Paypal</span> Half payment after the sketch is approved and the rest after the artwork is complete.
+                        </li>
+                        <li>
+                            The art will be done within 3-7 days
+                        </li>
+                        <li>
+                            DM me if you are interested or want to ask more question!
                         </li>
                     </ul>
                 </div>
@@ -68,7 +80,67 @@
             <div class="d-flex justify-content-center mt-4">
                 <div class="types-of-commission mb-3">
                     <ul>
-                        <li>
+                        <?php
+                        include '../../proses/Connection.php';
+                        $query = "SELECT * FROM commission_info";
+                        $result = $conn->query($query);
+                        $loop = 1;
+                        while ($data = $result->fetch_assoc()) {
+                            //$image = urlencode($data['nama_gambar']);
+                            if ($loop != 1) {
+                                echo "<hr class='mx-5'>";
+                            }
+
+                        ?>
+                            <li>
+                                <div class="card mb-3 mx-5">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <div id="carousel<?php echo $loop; ?>" class="carousel slide">
+                                                <div class="carousel-inner">
+                                                    <?php
+                                                    include '../../proses/Connection.php';
+                                                    $id_commission = $data['id_commission_info'];
+                                                    $num = 0;
+                                                    $query = "SELECT * FROM gallery WHERE id_commission_info = $id_commission";
+                                                    $resultImage = $conn->query($query);
+                                                    while ($dataImage = $resultImage->fetch_assoc()) {
+                                                        $image = urlencode($dataImage['nama_gambar']);
+
+                                                    ?>
+                                                        <div class="carousel-item <?php if ($num == 0) {
+                                                                                        echo "active";
+                                                                                    }
+                                                                                    $num++; ?>">
+                                                            <img src="../../assets/img/gallery/<?php echo "$image" ?>" class="d-block w-100" alt=<?php echo "$image" ?>>
+                                                        </div>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </div>
+                                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel<?php echo $loop; ?>" data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button" data-bs-target="#carousel<?php echo $loop; ?>" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 ps-5">
+                                            <div class="card-body">
+                                                <h5 class="card-title mb-3"><?php echo $data['jenis_commission']; ?><br><?php echo $data['harga']; ?>$</h5>
+                                                <p class="card-text"><?php echo $data['deskripsi']; ?>.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        <?php $loop++;
+                        }
+                        ?>
+                        <!-- <li>
                             <div class="card mb-3 mx-5">
                                 <div class="row g-0">
                                     <div class="col-md-4">
@@ -140,7 +212,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
