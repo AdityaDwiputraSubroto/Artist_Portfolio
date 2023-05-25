@@ -56,6 +56,9 @@
                             <span style="font-weight: bold;"> These are only the base price, </span> price may increase depending on how complex the background and character design
                         </li>
                         <li>
+                            <span style="font-weight: bold;">20$ for additional character </span>
+                        </li>
+                        <li>
                             <span style="font-weight: bold;"> 4 times max revision </span> : 3x during sketch and 1x during coloring
                         </li>
                         <li>
