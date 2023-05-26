@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['id_admin'])) {
+    echo "
+                <script>
+                    alert('You are not logged in!'); 
+                    document.location.href='index.php';
+                </script>
+            ";
+
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -81,6 +96,14 @@
                 </div>
             </div>
 
+            <div class="d-flex justify-content-center">
+                <div class="text-center">
+                    <a href="AddCommissionPage.php">
+                        <button class="btn btn-primary">ADD COMMISSION</button>
+                    </a>
+                </div>
+            </div>
+
             <div class="d-flex justify-content-center mt-4">
                 <div class="types-of-commission mb-3">
                     <ul>
@@ -103,7 +126,7 @@
                                         <button class="button-cancel">
                                             Cancel
                                         </button>
-                                        <a href="">
+                                        <a href="proses/deleteCommissionProcess.php?id_commission_info=<?= $data['id_commission_info']?>">
                                             <div class="button-delete">Delete</div>
                                         </a>
                                     </div>
@@ -114,7 +137,7 @@
                                     <div class="row g-0 position-relative">
                                         <a class="triple-dots"><img src="../../assets/img/icons/vertical-dots.png" alt=""></a>
                                         <div class="overlay-triple-dots">
-                                            <a href="">
+                                            <a href="EditCommissionPage.php?id_commission_info=<?= $data['id_commission_info']?>">
                                                 <button class="item">Edit</button>
                                             </a>
 
