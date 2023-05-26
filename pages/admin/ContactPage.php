@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['id_admin'])) {
+    echo "
+                <script>
+                    alert('You are not logged in!'); 
+                    document.location.href='index.php';
+                </script>
+            ";
+
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

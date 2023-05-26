@@ -44,13 +44,15 @@
     </div>
     
     <div class="d-flex justify-content-center" style="margin-bottom: 100px;">
-        <div class="w-25 text-center">
+        <div class="w-25">
             <form action="LoginProcess.php" method="POST">
                 <div class="mb-3">
-                    <input type="text" class="form-control border border-primary" name="username" id="username" placeholder="USERNAME" required>
+                    <label for="username" class="form-label text-primary">USERNAME</label>
+                    <input type="text" class="form-control border border-primary" name="username" id="username" required>
                 </div>
-                <div class="mb-3">
-                    <input type="password" class="form-control border border-primary" name="password" id="password" placeholder="PASSWORD" required>
+                <div class="mb-4">
+                    <label for="password" class="form-label text-primary">PASSWORD</label>
+                    <input type="password" class="form-control border border-primary" name="password" id="password" required>
                 </div>
                 <div class="d-grid">
                     <button type="submit" class="btn btn-primary" name="submit">LOGIN</button>

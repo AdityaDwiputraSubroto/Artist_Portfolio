@@ -1,6 +1,9 @@
 <?php
+session_start();
+
 if (isset($_POST['upload'])) {
 
+    $id_admin = $_SESSION['id_admin'];
     $targetDir = "../../../assets/img/gallery/";
     $imageName = basename($_FILES["image"]["name"]);
     $imageName = str_replace(" ", "%20", $imageName);
@@ -16,10 +19,10 @@ if (isset($_POST['upload'])) {
         $commissionID = $_POST['commission'];
         if ($commissionID == "0") {
             // Insert the image name and commission ID into the database
-            $sql = "INSERT INTO gallery (id_admin, nama_gambar) VALUES (1, '$uniqueName')";
+            $sql = "INSERT INTO gallery (id_admin, nama_gambar) VALUES ('$id_admin', '$uniqueName')";
         } else {
             // Insert the image name and commission ID into the database
-            $sql = "INSERT INTO gallery (id_admin, nama_gambar, id_commission_info) VALUES (1, '$uniqueName', '$commissionID')";
+            $sql = "INSERT INTO gallery (id_admin, nama_gambar, id_commission_info) VALUES ('$id_admin', '$uniqueName', '$commissionID')";
         }
 
         // if ($conn->query($sql) === TRUE) {

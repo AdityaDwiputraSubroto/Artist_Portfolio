@@ -1,16 +1,16 @@
 <?php
-// session_start();
+session_start();
 
-// if (!isset($_SESSION['id_admin'])) {
-//     echo "
-//                 <script>
-//                     alert('You are not logged in!'); 
-//                     document.location.href='index.php';
-//                 </script>
-//             ";
+if (!isset($_SESSION['id_admin'])) {
+    echo "
+                <script>
+                    alert('You are not logged in!'); 
+                    document.location.href='index.php';
+                </script>
+            ";
 
-//     die();
-// }
+    die();
+}
 ?>
 
 <!DOCTYPE html>
