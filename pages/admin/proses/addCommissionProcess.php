@@ -1,32 +1,31 @@
-<?php 
-    session_start();
+<?php
+session_start();
 
-    include "../../../proses/Connection.php";
+include "../../../proses/Connection.php";
 
-    if (!isset($_POST['submit'])) {
-        echo "
+if (!isset($_POST['submit'])) {
+    echo "
                 <script>
                     document.location.href='../AddCommissionPage.php';
                 </script>
             ";
-            
-        die();
-    }
 
-    $id_admin = $_SESSION['id_admin'];
-    $commission_name = htmlspecialchars($_POST['commission_name']);
-    $price = htmlspecialchars($_POST['price']);
-    $description = htmlspecialchars($_POST['description']);
+    die();
+}
 
-    $commission_name = ucwords($commission_name);
+$id_admin = $_SESSION['id_admin'];
+$commission_name = htmlspecialchars($_POST['commission_name']);
+$price = htmlspecialchars($_POST['price']);
+$description = htmlspecialchars($_POST['description']);
 
-    $sql = "INSERT INTO commission_info VALUES('','$commission_name','$price','$description','$id_admin')";
-    $query = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+$commission_name = ucwords($commission_name);
 
-    echo "
+$sql = "INSERT INTO commission_info(jenis_commission,harga,deskripsi,id_admin) VALUES('$commission_name','$price','$description','$id_admin')";
+$query = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+echo "
             <script>
                 alert('Commission added successfully!'); 
                 document.location.href='../CommissionInfoPage.php';
             </script>
         ";
-?>
