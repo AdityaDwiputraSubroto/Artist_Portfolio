@@ -41,7 +41,7 @@
         </div>
         <div class="w-25 description">
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed enim nibh, porttitor tempor suscipit eu, dictum non ligula. Vestibulum scelerisque luctus elit quis tincidunt. Cras dapibus mi eu aliquam finibus. bibendum. Maecenas sodales ut nisi nec suscipit. Maecenas gravida augue vitae felis ullamcorper facilisis.
+                Aspiring artist from south east asia. I really love fanart illustrations from games and anime, especially those from Kyoani's anime productions. They're so cool. But when I'm bored, I draw anything.
             </p>
         </div>
     </div>
