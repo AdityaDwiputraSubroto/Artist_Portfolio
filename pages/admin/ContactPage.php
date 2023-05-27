@@ -47,7 +47,7 @@ if (!isset($_SESSION['id_admin'])) {
 
     <div class="text-center mt-4">
         <p class="text-primary" style="font-size: 25px; font-weight: 600;">CONTACT & INQUIRIES</p>
-        <p class="" style="font-size: 18px; font-weight: 600;">RAUNROUND@gmail.com</p>
+        <p class="" style="font-size: 18px; font-weight: 600;">Dnuor.nuar@gmail.com</p>
     </div>
 
     <?php
@@ -81,7 +81,7 @@ if (!isset($_SESSION['id_admin'])) {
     const emailForm = document.querySelector('#emailForm');
     emailForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const email = "adityadwiputras52@gmail.com"
+        const email = "Dnuor.nuar@gmail.com"
         const subject = emailForm.querySelector('#subject').value;
         const message = emailForm.querySelector('#message').value;
 
