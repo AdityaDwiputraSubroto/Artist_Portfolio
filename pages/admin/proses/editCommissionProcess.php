@@ -19,7 +19,18 @@
     $price = htmlspecialchars($_POST['price']);
     $description = htmlspecialchars($_POST['description']);
 
-    $commission_name = ucwords($commission_name);
+    $commission_name = strtoupper($commission_name);
+
+    if (!is_numeric($price)) {
+        echo "
+                <script>
+                    alert('Price invalid!');
+                    document.location.href='../EditCommissionPage.php?id_commission_info=$id_commission_info';
+                </script>
+            ";
+    
+        die();    
+    }
 
     $sql = "UPDATE commission_info SET jenis_commission='$commission_name', harga='$price', deskripsi='$description', id_admin='$id_admin' WHERE id_commission_info='$id_commission_info'";
     $query = mysqli_query($conn,$sql) or die(mysqli_error($conn));

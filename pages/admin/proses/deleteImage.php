@@ -1,4 +1,15 @@
 <?php
+
+if (!isset($_POST['imageId'])) {
+    echo "
+            <script>
+                document.location.href='../AddCommissionPage.php';
+            </script>
+        ";
+
+    die();
+}
+
 if (isset($_POST['imageId'])) {
     // Get the image ID from the POST data
     $imageId = $_POST['imageId'];
@@ -25,16 +36,35 @@ if (isset($_POST['imageId'])) {
         // Delete the image record from the database
         $deleteSql = "DELETE FROM gallery WHERE id_gallery = '$imageId'";
         if ($conn->query($deleteSql) === TRUE) {
-            echo "success";
+            echo "
+                <script>
+                    document.location.href='../GalleryPage.php';
+                </script>
+            ";
         } else {
-            echo "Error deleting the image record: " . $conn->error;
+            echo "
+                <script>
+                    alert('Delete failed!');
+                    document.location.href='../GalleryPage.php';
+                </script>
+            ";
         }
     } else {
-        echo "Image not found.";
+        echo "
+            <script>
+                alert('Delete failed!');
+                document.location.href='../GalleryPage.php';
+            </script>
+        ";
     }
 
     // Close the database connection
     $conn->close();
 } else {
-    echo "Invalid request.";
+    echo "
+            <script>
+                alert('Delete failed!');
+                document.location.href='../GalleryPage.php';
+            </script>
+        ";
 }

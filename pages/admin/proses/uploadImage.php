@@ -1,6 +1,16 @@
 <?php
 session_start();
 
+if (!isset($_POST['upload'])) {
+    echo "
+            <script>
+                document.location.href='../GalleryPage.php';
+            </script>
+        ";
+
+    die();
+}
+
 if (isset($_POST['upload'])) {
 
     $id_admin = $_SESSION['id_admin'];
@@ -33,19 +43,28 @@ if (isset($_POST['upload'])) {
 
         if ($conn->query($sql) === TRUE) {
             // Redirect back to gallery.php with success message
-            header("Location: ../GalleryPage.php?status=success");
-            exit();
+            echo "
+                <script>
+                    document.location.href='../GalleryPage.php?status=success';
+                </script>
+            ";
         } else {
             // Redirect back to gallery.php with error message
-            header("Location: ../GalleryPage.php?status=error");
-            exit();
+            echo "
+                <script>
+                    document.location.href='../GalleryPage.php?status=error';
+                </script>
+            ";
         }
 
         // Close the connection
         $conn->close();
     } else {
         // Redirect back to gallery.php with error message
-        header("Location: ../GalleryPage.php?status=error&message=Please select an image.");
-        exit();
+        echo "
+                <script>
+                    document.location.href='../GalleryPage.php?status=error&message=Please select an image.';
+                </script>
+            ";
     }
 }

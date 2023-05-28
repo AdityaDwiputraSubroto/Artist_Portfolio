@@ -5,7 +5,7 @@ if (!isset($_SESSION['id_admin'])) {
     echo "
                 <script>
                     alert('You are not logged in!'); 
-                    document.location.href='index.php';
+                    document.location.href='LoginPage.php';
                 </script>
             ";
 
