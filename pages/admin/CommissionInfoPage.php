@@ -5,7 +5,7 @@ if (!isset($_SESSION['id_admin'])) {
     echo "
                 <script>
                     alert('You are not logged in!'); 
-                    document.location.href='index.php';
+                    document.location.href='LoginPage.php';
                 </script>
             ";
 
@@ -167,20 +167,22 @@ if (!isset($_SESSION['id_admin'])) {
                                                     }
                                                     ?>
                                                 </div>
-                                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel<?php echo $loop; ?>" data-bs-slide="prev">
-                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Previous</span>
-                                                </button>
-                                                <button class="carousel-control-next" type="button" data-bs-target="#carousel<?php echo $loop; ?>" data-bs-slide="next">
-                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Next</span>
-                                                </button>
+                                                <?php if ($num > 1) { ?> 
+                                                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel<?php echo $loop; ?>" data-bs-slide="prev">
+                                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                        <span class="visually-hidden">Previous</span>
+                                                    </button>
+                                                    <button class="carousel-control-next" type="button" data-bs-target="#carousel<?php echo $loop; ?>" data-bs-slide="next">
+                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                        <span class="visually-hidden">Next</span>
+                                                    </button>
+                                                <?php } ?>
                                             </div>
                                         </div>
                                         <div class="col-md-8 ps-5">
                                             <div class="card-body">
                                                 <h5 class="card-title mb-3"><?php echo $data['jenis_commission']; ?><br><?php echo $data['harga']; ?>$</h5>
-                                                <p class="card-text"><?php echo $data['deskripsi']; ?>.</p>
+                                                <p class="card-text"><?php echo $data['deskripsi']; ?></p>
                                             </div>
                                         </div>
                                     </div>
