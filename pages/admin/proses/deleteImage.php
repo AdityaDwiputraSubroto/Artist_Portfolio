@@ -3,7 +3,7 @@
 if (!isset($_POST['imageId'])) {
     echo "
             <script>
-                document.location.href='../AddCommissionPage.php';
+                document.location.href='../GalleryPage.php';
             </script>
         ";
 
@@ -37,9 +37,7 @@ if (isset($_POST['imageId'])) {
         $deleteSql = "DELETE FROM gallery WHERE id_gallery = '$imageId'";
         if ($conn->query($deleteSql) === TRUE) {
             echo "
-                <script>
-                    document.location.href='../GalleryPage.php';
-                </script>
+                success
             ";
         } else {
             echo "

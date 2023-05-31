@@ -144,9 +144,10 @@ if (!isset($_SESSION['id_admin'])) {
                 },
                 success: function(response) {
                     // Handle the response from the server
-                    if (response === "success") {
+                    if (response.trim() === "success") {
                         // Delete the gallery item from the DOM
                         // galleryItem.remove();
+                        alert("Delete Successful")
                     } else {
                         // Show an error message
                         alert("Failed to delete the image.");
