@@ -70,7 +70,7 @@ if (!isset($_SESSION['id_admin'])) {
                 <option value="0">None</option>
                 <?php
                 include '../../proses/Connection.php';
-                $query = "SELECT * FROM commission_Info";
+                $query = "SELECT * FROM commission_info";
                 $result = $conn->query($query);
                 while ($data = $result->fetch_assoc()) { ?>
                     <option value="<?php echo $data['id_commission_info']; ?>"><?php echo $data['jenis_commission']; ?></option>
