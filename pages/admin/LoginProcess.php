@@ -1,50 +1,51 @@
 <?php
-    session_start();
+session_start();
 
-    if (!isset($_POST['submit'])) {
-        echo "  
+if (!isset($_POST['submit'])) {
+    echo "  
                 <script>
                     document.location.href='LoginPage.php';
                 </script>   
             ";
 
-        die();
-    }
+    die();
+}
 
-    include "../../proses/Connection.php";
-    
-    $username = $_POST['username'];
-    $password = mysqli_escape_string($conn,$_POST['password']);
+include "../../proses/Connection.php";
 
-    $sql = "SELECT * FROM admins WHERE username='$username'";
-    $query = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+$username = $_POST['username'];
+$password = mysqli_escape_string($conn, $_POST['password']);
 
-    $num_rows = mysqli_num_rows($query);
+$sql = "SELECT * FROM admins WHERE username='$username'";
+$query = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
-    if ($num_rows > 0) {
-        $data = mysqli_fetch_assoc($query);
+$num_rows = mysqli_num_rows($query);
 
-        if (password_verify($password,$data['password'])) {
-            $_SESSION['id_admin'] = $data['id_admin'];
+if ($num_rows > 0) {
+    $data = mysqli_fetch_assoc($query);
 
-            echo "
+    //if (password_verify($password,$data['password'])) {
+    if ($password ==  $data['password']) {
+        $_SESSION['id_admin'] = $data['id_admin'];
+
+        echo "
                     <script>
                         document.location.href='index.php';
                     </script>
                 ";
-        } else {
-            echo "
+    } else {
+        echo "
                     <script>
                         alert('Login failed! Wrong username or password'); 
                         document.location.href='LoginPage.php';
                     </script>
                 ";
-        }
-    } else {
-        echo "
+    }
+} else {
+    echo "
                 <script>
                     alert('Login failed! Wrong username or password'); 
                     document.location.href='LoginPage.php';
                 </script>
             ";
-    }
+}
